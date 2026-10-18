@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b17">
+  <title>Checkmate Chess Club</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-view="home">
+        <span class="brand-mark">♞</span>
+        <span><strong>CHECKMATE</strong><small>CHESS CLUB</small></span>
+      </a>
+      <div class="club-label">CLUB MENU</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-link active" data-view="home"><span>⌂</span> Overview</button>
+        <button class="nav-link" data-view="play"><span>♟</span> Play & train</button>
+        <button class="nav-link" data-view="tournaments"><span>♜</span> Tournaments</button>
+        <button class="nav-link" data-view="lessons"><span>▤</span> Learn chess</button>
+        <button class="nav-link" data-view="leaderboard"><span>↗</span> Leaderboard</button>
+        <button class="nav-link" data-view="community"><span>◎</span> Community</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-card">
+          <div class="tiny-crown">✦</div>
+          <strong>Make your next move count.</strong>
+          <p>Learn, play, and grow with the club.</p>
+          <button class="btn btn-light btn-small" data-view="lessons">Explore lessons</button>
+        </div>
+        <button class="profile-mini" id="sidebar-profile">
+          <span class="avatar" id="side-avatar">G</span>
+          <span class="profile-mini-copy"><strong id="side-name">Guest player</strong><small id="side-status">Visitor account</small></span>
+          <span class="more">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-brand" data-view="home">♞ CHECKMATE</button>
+        <div class="breadcrumb">Club / <strong id="page-breadcrumb">Overview</strong></div>
+        <div class="top-actions">
+          <span class="online-dot"></span><span class="online-label">Club is open</span>
+          <button class="btn btn-outline" id="auth-button">Sign in</button>
+        </div>
+      </header>
+
+      <section class="view active" id="view-home">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT MOVE STARTS HERE</div>
+            <h1>Think ahead.<br><em>Play together.</em></h1>
+            <p class="lead">A place for curious minds and ambitious players to learn chess, challenge friends, and grow as a community.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-view="play">♟ &nbsp; Start playing <span>↗</span></button>
+              <button class="btn btn-ghost" data-view="lessons">Explore lessons <span>→</span></button>
+            </div>
+            <div class="hero-note"><span class="tiny-check">✓</span> Open to every level · Learn at your own pace</div>
+          </div>
+          <div class="hero-art" aria-label="Decorative chessboard illustration">
+            <div class="art-glow"></div>
+            <div class="art-label">STRATEGY · FOCUS · COMMUNITY</div>
+            <div class="chessboard" aria-hidden="true">
+              <div class="piece piece-a">♜</div><div class="piece piece-b">♞</div>
+              <div class="piece piece-c">♝</div><div class="piece piece-d">♛</div>
+              <div class="piece piece-e">♚</div><div class="piece piece-f">♟</div>
+            </div>
+            <div class="art-stamp">EST.<br><strong>2026</strong></div>
+            <div class="art-caption"><span class="caption-line"></span><span>Every great player<br>started with one move.</span></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span class="stat-icon">♙</span><div><small>YOUR CLUB RANK</small><strong id="stat-rank">—</strong><span class="stat-foot">Join to appear on the board</span></div></div>
+          <div class="stat-card"><span class="stat-icon">⚑</span><div><small>UPCOMING EVENTS</small><strong id="stat-events">03</strong><span class="stat-foot">Find your next challenge</span></div></div>
+          <div class="stat-card"><span class="stat-icon">✧</span><div><small>LESSONS TO EXPLORE</small><strong>06</strong><span class="stat-foot">From basics to strategy</span></div></div>
+        </div>
+
+        <div class="section-heading">
+          <div><div class="eyebrow">ON THE CLUB CALENDAR</div><h2>Upcoming events</h2></div>
+          <button class="text-link" data-view="tournaments">View all events <span>→</span></button>
+        </div>
+        <div class="event-grid" id="home-events"></div>
+
+        <div class="bottom-grid">
+          <section class="panel">
+            <div class="section-heading compact"><div><div class="eyebrow">IMPROVE YOUR GAME</div><h2>Pick up a new skill</h2></div><button class="icon-button" data-view="lessons">↗</button></div>
+            <div class="lesson-row"><span class="lesson-symbol green">♞</span><span class="lesson-copy"><strong>Opening principles</strong><small>Build a strong first position · 8 min</small></span><span class="lesson-level">BEGINNER</span><button class="arrow-button" data-lesson="0">→</button></div>
+            <div class="lesson-row"><span class="lesson-symbol gold">♜</span><span class="lesson-copy"><strong>Spotting tactics</strong><small>Find forks, pins, and discovered attacks · 12 min</small></span><span class="lesson-level">INTERMEDIATE</span><button class="arrow-button" data-lesson="2">→</button></div>
+            <div class="lesson-row"><span class="lesson-symbol purple">♛</span><span class="lesson-copy"><strong>Endgame essentials</strong><small>Turn an advantage into a win · 10 min</small></span><span class="lesson-level">ALL LEVELS</span><button class="arrow-button" data-lesson="4">→</button></div>
+          </section>
+          <section class="panel leaderboard-preview">
+            <div class="section-heading compact"><div><div class="eyebrow">THE CLUB'S PLAYERS</div><h2>Leaderboard</h2></div><button class="text-link" data-view="leaderboard">See all →</button></div>
+            <div id="mini-leaderboard"></div>
+            <div class="leaderboard-note">Sign in to create your player profile and join the community leaderboard.</div>
+          </section>
+        </div>
+        <footer>© 2026 Checkmate Chess Club <span>Made for players who love the game. <b>♞</b></span></footer>
+      </section>
+
+      <section class="view" id="view-play">
+        <div class="page-intro"><div class="eyebrow">YOUR BOARD IS READY</div><h1>Ready to <em>make a move?</em></h1><p class="lead">Choose a way to play. Online multiplayer can be connected after the club database and game server are configured.</p></div>
+        <div class="play-options">
+          <article class="play-card robot-play"><div class="play-card-icon">♟</div><span class="tag">LEVEL-BASED TRAINING</span><h2>Train with a robot</h2><p>Choose beginner, intermediate, or advanced. The robot adjusts its move choices to your selected level.</p><button class="btn btn-primary" id="robot-button">Start robot training ↗</button></article>
+          <article class="play-card featured-play"><div class="play-card-icon">♞</div><span class="tag">QUICK START</span><h2>Practice board</h2><p>Try the board and get comfortable with chess notation. This demo board is for exploration, not a rated game.</p><button class="btn btn-primary" id="practice-button">Open practice board ↗</button></article>
+          <article class="play-card"><div class="play-card-icon">♟</div><h2>Challenge a friend</h2><p>Meet a club member for a friendly game. Multiplayer matchmaking needs a real-time game service.</p><button class="btn btn-outline" id="friend-button">How it works</button></article>
+          <article class="play-card"><div class="play-card-icon">♜</div><h2>Find a match</h2><p>Play with someone around your level once matchmaking is enabled for the live club.</p><button class="btn btn-outline" id="match-button">Join the waitlist</button></article>
+        </div>
+        <div class="panel board-panel" id="practice-panel" hidden>
+          <div class="section-heading compact"><div><div class="eyebrow">PLAY & PRACTICE</div><h2 id="board-title">Explore the board</h2></div><button class="icon-button" id="close-board" aria-label="Close board">×</button></div>
+          <div class="robot-controls" id="robot-controls" hidden><label for="robot-level">Your level</label><select id="robot-level"><option value="beginner">Beginner — gentle practice</option><option value="intermediate">Intermediate — thoughtful play</option><option value="advanced">Advanced — stronger challenge</option></select><span id="robot-status" role="status">Choose a level and start a game.</span></div>
+          <p class="muted" id="board-help">Choose a square to explore the board.</p>
+          <div id="practice-board" class="practice-board" aria-label="Chessboard"></div>
+          <div class="board-actions"><button class="btn btn-outline" id="flip-board">Flip board</button><button class="btn btn-primary" id="reset-board">Reset board</button></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-tournaments">
+        <div class="page-intro"><div class="eyebrow">PLAY WITH PURPOSE</div><h1>Events & <em>tournaments</em></h1><p class="lead">Join friendly club events, learn from other players, and celebrate improvement at every level.</p></div>
+        <div class="filter-row"><span class="filter-label">EVENTS</span><span class="filter-pill selected">All events</span><span class="filter-pill">Tournaments</span><span class="filter-pill">Workshops</span></div>
+        <div class="event-grid event-grid-wide" id="all-events"></div>
+        <div class="notice"><span>ⓘ</span><div><strong>Organizing an event?</strong><p>Event registration is currently a demo interaction. Connect the database to collect real registrations from club members.</p></div></div>
+      </section>
+
+      <section class="view" id="view-lessons">
+        <div class="page-intro"><div class="eyebrow">LEARN AT YOUR OWN PACE</div><h1>Build your <em>chess sense.</em></h1><p class="lead">Short, practical lessons to help you understand the board, spot opportunities, and plan ahead.</p></div>
+        <div class="lesson-catalog" id="lesson-catalog"></div>
+        <div class="panel lesson-detail" id="lesson-detail"><div class="eyebrow">LESSON PREVIEW</div><h2>Choose a lesson to begin</h2><p class="muted">Each lesson gives you one idea to practice during your next game.</p></div>
+      </section>
+
+      <section class="view" id="view-leaderboard">
+        <div class="page-intro"><div class="eyebrow">CELEBRATE THE PROGRESS</div><h1>Club <em>leaderboard.</em></h1><p class="lead">A friendly snapshot of the demo club. Real player rankings should be based on verified games, not profile edits.</p></div>
+        <div class="panel table-panel"><div class="table-top"><div><h2>Top players</h2><p class="muted">Sample data · not official ratings</p></div><span class="tag">SEASON 2026</span></div><div id="full-leaderboard"></div></div>
+      </section>
+
+      <section class="view" id="view-community">
+        <div class="page-intro"><div class="eyebrow">BETTER TOGETHER</div><h1>Meet the <em>community.</em></h1><p class="lead">Share ideas, find practice partners, and help make the club welcoming for everyone.</p></div>
+        <div class="community-grid">
+          <div class="panel community-panel"><div class="community-icon">◎</div><h2>Club discussion</h2><p class="muted">A friendly place to talk about chess openings, puzzles, and upcoming events.</p><div class="demo-chat" id="chat-messages"><div class="chat-message"><span class="avatar avatar-small">C</span><p><strong>Club notice</strong><br>Welcome! Be respectful, protect your personal information, and keep the conversation about chess.</p></div></div><form id="chat-form" class="chat-form"><input id="chat-input" maxlength="240" placeholder="Write a friendly message…" aria-label="Chat message"><button class="btn btn-primary" type="submit">Send</button></form><small class="muted">Demo chat is saved only in this browser. It is not visible to other people.</small></div>
+          <div class="panel community-panel"><div class="community-icon">♟</div><h2>Your player profile</h2><p class="muted">Create a club account to save your name and level. Your email stays private; don't publish phone numbers or your home address.</p><div class="profile-preview"><span class="avatar avatar-large" id="community-avatar">G</span><div><strong id="community-name">Guest player</strong><small id="community-level">Unranked · Visitor</small></div></div><button class="btn btn-primary full-width" id="community-auth">Create account / Sign in</button></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-profile">
+        <div class="page-intro"><div class="eyebrow">YOUR CLUB IDENTITY</div><h1>Player <em>profile.</em></h1><p class="lead">Manage the details displayed on your club profile.</p></div>
+        <div class="panel profile-form-panel"><form id="profile-form"><label for="profile-name">Display name</label><input id="profile-name" maxlength="32" required placeholder="Your chess nickname"><label for="profile-level">Experience level</label><select id="profile-level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select><label for="profile-bio">A little about your chess goals</label><textarea id="profile-bio" maxlength="180" rows="3" placeholder="I want to improve my tactics…"></textarea><button class="btn btn-primary" type="submit">Save profile</button></form></div>
+      </section>
+
+      <footer class="mobile-footer">© 2026 Checkmate Chess Club</footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="auth-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+      <button class="modal-close" id="close-auth" aria-label="Close">×</button>
+      <div class="modal-mark">♞</div><div class="eyebrow">JOIN THE CLUB</div><h2 id="auth-title">Your next move starts here.</h2><p class="muted" id="auth-subtitle">Create a profile to join the community.</p>
+      <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="signup">Create account</button><button class="auth-tab" data-auth-mode="signin">Sign in</button></div>
+      <form id="auth-form"><label for="auth-name" id="auth-name-label">Display name</label><input id="auth-name" maxlength="32" placeholder="Chess nickname"><label for="auth-email">Email address</label><input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com"><label for="auth-password">Password</label><input id="auth-password" type="password" minlength="8" autocomplete="new-password" required placeholder="At least 8 characters"><p class="form-message" id="auth-message" role="status"></p><button class="btn btn-primary full-width" id="auth-submit" type="submit">Create my account</button></form>
+      <p class="fine-print">This project is in setup mode until you add your own Supabase URL and publishable key in <code>config.js</code>. Never put a secret/service-role key in a public website.</p>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
